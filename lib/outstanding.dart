@@ -9,6 +9,7 @@ import 'get_data.dart';
 import 'login_page.dart';
 import 'package:mobile_rightclick_law_native/outstanding_tasks.dart';
 import 'icons/right_click_icons_icons.dart';
+import 'outstanding_calls.dart';
 
 class Outstanding extends StatefulWidget {
   static String tag = 'outstanding';
@@ -136,7 +137,7 @@ class _OutstandingState extends State<Outstanding> {
                     size: 45,
                   ),
                   onPressed: () {
-                    print('object');
+                    Navigator.pushNamed(context, OutstandingCalls.tag);
                   },
                 ),
               ),
