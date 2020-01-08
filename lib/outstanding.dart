@@ -21,11 +21,13 @@ class _OutstandingState extends State<Outstanding> {
   uncompletedTasksReply comingTasksAnswer;
   uncompletedCallsReply comingCallsAnswer;
   DocumentsReply comingDocumentsAnswer;
+  EventsReply comingEventsAnswer;
 
   Future _getData() async {
     comingTasksAnswer = await getUncompletedTasks(userId.toString());
     comingCallsAnswer = await getUncompletedCalls(userId.toString());
     comingDocumentsAnswer = await getDocumentsReply();
+    comingEventsAnswer = await getEventsReply(userId.toString());
   }
 
   @override
@@ -240,7 +242,7 @@ class _OutstandingState extends State<Outstanding> {
                       case ConnectionState.done:
                         if (snapshot.hasError)
                           return Text('Error: ${snapshot.error}');
-                        return Text('0');
+                        return Text(comingEventsAnswer.count.toString());
                     }
                   })
             ],
