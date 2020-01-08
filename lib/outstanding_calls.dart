@@ -3,14 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'get_data.dart';
 
-class OutstandingTasks extends StatefulWidget {
-  static String tag = 'outstanding_tasks';
+class OutstandingCalls extends StatefulWidget {
+  static String tag = 'outstanding_calls';
 
   @override
-  _OutstandingTasksState createState() => _OutstandingTasksState();
+  _OutstandingCallsState createState() => _OutstandingCallsState();
 }
 
-class _OutstandingTasksState extends State<OutstandingTasks> {
+class _OutstandingCallsState extends State<OutstandingCalls> {
   uncompletedCallsReply comingAnswer;
 
   Future _getData() async {
@@ -21,7 +21,7 @@ class _OutstandingTasksState extends State<OutstandingTasks> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Tasks'),
+          title: Text('Calls'),
         ),
         body: FutureBuilder(
             future: _getData(),
