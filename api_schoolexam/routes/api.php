@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CallController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\EventController;
 use Illuminate\Http\Request;
 use \App\Http\Controllers\MainController;
 use \App\Http\Controllers\TaskController;
@@ -28,3 +29,4 @@ Route::get('/tasks', [TaskController::class, 'tasks']);
 Route::post('/uncompletedtasks', [TaskController::class, 'getuncompletedtasks']);
 Route::post('/uncompletedcalls', [CallController::class, 'getcalls']);
 Route::get('/documents', [DocumentController::class, 'getDocumentLength']);
+Route::post('/events', [EventController::class, 'getEvents']);

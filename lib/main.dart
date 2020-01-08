@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_rightclick_law_native/outstanding.dart';
+import 'package:mobile_rightclick_law_native/outstanding_events.dart';
 import 'package:mobile_rightclick_law_native/outstanding_tasks.dart';
 import 'package:mobile_rightclick_law_native/outstanding_calls.dart';
 import 'login_page.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     Outstanding.tag: (context) => Outstanding(),
     OutstandingTasks.tag: (context) => OutstandingTasks(),
     OutstandingCalls.tag: (context) => OutstandingCalls(),
+    OutstandingEvents.tag: (context) => OutstandingEvents(),
   };
 
   // This widget is the root of your application.

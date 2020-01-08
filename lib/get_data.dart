@@ -135,6 +135,34 @@ Future<uncompletedCallsReply> getUncompletedCalls(String userID) async {
   return uncompletedCallsLength;
 }
 
+class EventsReply {
+  List gottenData;
+  int count;
+  String responseMessage;
+
+  EventsReply(this.gottenData, this.count, this.responseMessage);
+}
+
+Future<EventsReply> getEventsReply(String userID) async {
+  // set up POST request arguments
+  String url = 'http://kemaloner.nl/api/nebiliyim/public/api/events';
+  Map<String, String> headers = {"Content-type": "application/json"};
+  String json = '{"userID": "$userID"}';
+  // make POST request
+  Response response = await http.post(url, headers: headers, body: json);
+  // check the status code for the result
+
+  Map<String, dynamic> map = jsonDecode(response.body); // Decode coming in json file
+
+  int uncompletedDataSayisi = map['count'];
+  List gottenData = map['data'];
+  String responseMessage = map['message'];
+
+  var uncompletedCallsLength = new EventsReply(gottenData, uncompletedDataSayisi, responseMessage); // Put messages in the reply class
+
+  return uncompletedCallsLength;
+}
+
 class DocumentsReply {
   int count;
 
