@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_rightclick_law_native/main.dart';
+import 'package:mobile_rightclick_law_native/outstanding_events.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dashboard.dart';
 import 'get_data.dart';
@@ -216,7 +217,7 @@ class _OutstandingState extends State<Outstanding> {
                     size: 45,
                   ),
                   onPressed: () {
-                    print('object');
+                    Navigator.pushNamed(context, OutstandingEvents.tag);
                   },
                 ),
               ),
