@@ -30,3 +30,4 @@ Route::post('/uncompletedtasks', [TaskController::class, 'getuncompletedtasks'])
 Route::post('/uncompletedcalls', [CallController::class, 'getcalls']);
 Route::get('/documents', [DocumentController::class, 'getDocumentLength']);
 Route::post('/events', [EventController::class, 'getEvents']);
+Route::post('/completetasks', [TaskController::class, 'completeTask']);

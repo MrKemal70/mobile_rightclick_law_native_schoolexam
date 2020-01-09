@@ -73,4 +73,22 @@ class TaskController extends Controller
             'data'  => $tasksArray
         ]);
     }
+
+    public function completeTask(Request $request)
+    {
+        $userID = $request->userID;
+        $taskID = $request->taskID;
+
+        $task = Task::all()->where('RESPONSIBLE_USER_ID', '=', $userID)->where('TASK_ID', '=', $taskID)->all();
+
+        $task->TASK_ID = 1;
+
+        $task->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Herrus',
+        ]);
+
+    }
 }
