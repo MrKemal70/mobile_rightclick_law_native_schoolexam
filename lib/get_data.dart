@@ -104,6 +104,30 @@ Future<uncompletedTasksReply> getUncompletedTasks(String userID) async {
   return uncompletedDataLength;
 }
 
+class completedTasksReply {
+  List gottenData;
+
+  completedTasksReply(this.gottenData);
+}
+
+Future<completedTasksReply> completeTasks(int taskID) async {
+  // set up POST request arguments
+  String url = 'http://kemaloner.nl/api/nebiliyim/public/api/completetask';
+  Map<String, String> headers = {"Content-type": "application/json"};
+  String json = '{"taskID": "$taskID"}';
+  // make POST request
+  Response response = await post(url, headers: headers, body: json);
+  // check the status code for the result
+
+  Map<String, dynamic> map = jsonDecode(response.body); // Decode coming in json file
+
+  List uncompletedData = map['data'];
+
+  var uncompletedDataLength = new completedTasksReply(uncompletedData); // Put messages in the reply class
+
+  return uncompletedDataLength;
+}
+
 class uncompletedCallsReply {
   List gottenData;
   int count;

@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
+    public $timestamps = false;
     protected $table = 'tasks';
+    protected $primaryKey = 'TASK_ID';
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

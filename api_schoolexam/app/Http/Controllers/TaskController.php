@@ -46,9 +46,7 @@ class TaskController extends Controller
     {
         $userID = $request->userID;
         $tasks = Task::all()->where('RESPONSIBLE_USER_ID', '=', $userID)->where('IS_COMPLETED', '=', '0')->all();
-
         $tasksArray = array();
-
 
         foreach($tasks as $task)
         {
@@ -57,7 +55,8 @@ class TaskController extends Controller
                 'assigned'         => $task->userAssigned->FULL_NAME,
                 'responsible'      => $task->userResponsible->FULL_NAME,
                 'task_subject'     => $task->TASK_SUBJECT,
-                'task_description' => $task->TASK_DESCRIPTION
+                'task_description' => $task->TASK_DESCRIPTION,
+                'task_id'	   => $task->TASK_ID
             ];
         }
 
@@ -70,18 +69,20 @@ class TaskController extends Controller
 
         return response()->json([
             'count' => $count,
-            'data'  => $tasksArray
+            'data'    => $tasksArray
         ]);
     }
-
-    public function completeTask(Request $request)
+    public function completetask(Request $request)
     {
+        //return "asd";
         $userID = $request->userID;
         $taskID = $request->taskID;
 
-        $task = Task::all()->where('RESPONSIBLE_USER_ID', '=', $userID)->where('TASK_ID', '=', $taskID)->all();
+        $task = Task::find($taskID);
 
-        $task->TASK_ID = 1;
+        //return $task;
+
+        $task->IS_COMPLETED = 1;
 
         $task->save();
 
