@@ -87,6 +87,9 @@ class _OutstandingTasksState extends State<OutstandingTasks> {
                                         onPressed: () {
                                           completeTasks(comingAnswer
                                               .gottenData[position]["task_id"]);
+                                          setState(() {
+                                            _getData();
+                                          });
                                         },
                                       ),
                                       FlatButton(
