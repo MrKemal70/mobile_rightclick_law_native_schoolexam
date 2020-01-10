@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loading/indicator/ball_pulse_indicator.dart';
 import 'package:loading/loading.dart';
 import 'package:mobile_rightclick_law_native/login_page.dart';
+import 'package:mobile_rightclick_law_native/navigation.dart';
 import 'package:mobile_rightclick_law_native/outstanding.dart';
 import 'get_data.dart';
 
@@ -23,48 +24,9 @@ class _DashboardState extends State<Dashboard> {
   }
 
   @override
-  Widget build(BuildContextcontext) {
+  Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            DrawerHeader(
-              child: Text(
-                'RightClick Law Menu',
-                textAlign: TextAlign.center,
-              ),
-              decoration: BoxDecoration(
-                color: Colors.green,
-              ),
-            ),
-            ListTile(
-              title: Text(
-                'Dashboard',
-                textAlign: TextAlign.center,
-              ),
-              onTap: () {
-                Navigator.pop(context, Dashboard.tag);
-              },
-            ),
-            ListTile(
-              title: Text(
-                'Outstanding',
-                textAlign: TextAlign.center,
-              ),
-              onTap: () {
-                Navigator.popAndPushNamed(context, Outstanding.tag);
-              },
-            ),
-            ListTile(
-              title: Text(
-                'Calendar',
-                textAlign: TextAlign.center,
-              ),
-              onTap: () {},
-            ),
-          ],
-        ),
-      ),
+      drawer: MyNavigation(),
       appBar: new AppBar(title: Text('Dashboard')),
       body: FutureBuilder(
         future: _getData(),

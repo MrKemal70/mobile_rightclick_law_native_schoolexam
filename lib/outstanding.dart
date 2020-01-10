@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_rightclick_law_native/main.dart';
 import 'package:mobile_rightclick_law_native/outstanding_events.dart';
+import 'package:mobile_rightclick_law_native/navigation.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dashboard.dart';
 import 'get_data.dart';
@@ -35,49 +36,7 @@ class _OutstandingState extends State<Outstanding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: Drawer(
-          child: ListView(
-            children: <Widget>[
-              DrawerHeader(
-                child: Text(
-                  'RightClick Law Menu',
-                  textAlign: TextAlign.center,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                ),
-              ),
-              ListTile(
-                title: Text(
-                  'Dashboard',
-                  textAlign: TextAlign.center,
-                ),
-                onTap: () {
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => Dashboard()),
-                      (Route<dynamic> route) => false);
-                },
-              ),
-              ListTile(
-                title: Text(
-                  'Outstanding',
-                  textAlign: TextAlign.center,
-                ),
-                onTap: () {
-                  Navigator.pop(context, Outstanding.tag);
-                },
-              ),
-              ListTile(
-                title: Text(
-                  'Calendar',
-                  textAlign: TextAlign.center,
-                ),
-                onTap: () {},
-              ),
-            ],
-          ),
-        ),
+        drawer: MyNavigation(),
         appBar: new AppBar(
           title: Text('Outstanding'),
         ),
