@@ -30,7 +30,7 @@ class _MyNavigationState extends State<MyNavigation> {
               textAlign: TextAlign.center,
             ),
             onTap: () {
-              Navigator.pop(context, Dashboard.tag);
+              Navigator.popAndPushNamed(context, Dashboard.tag);
             },
           ),
           ListTile(
